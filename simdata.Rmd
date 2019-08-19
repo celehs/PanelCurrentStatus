@@ -1,0 +1,84 @@
+---
+output:
+  pdf_document: default
+---
+
+```{r}
+generate.t <- function(h0, beta0, u, z, alpha, n) {
+  if(beta0 == 1) {
+    beta <- c(1, 1, 1) / 3 
+  } else if (beta0 == 2) {
+    beta <- c(2, -1, 0) / 3 
+  }
+  beta <- beta / sqrt(sum(beta^2))
+  mix.frac <- 0.5
+  mu1 <- -2
+  mu2 <- 3
+  sigma2.1 <- 1
+  sigma2.2 <- 1
+  mus <- c(mu1, mu2)
+  sds <- sqrt(c(sigma2.1, sigma2.2))
+  components <- sample(1:2, prob = c(mix.frac, 1 - mix.frac), size = n, replace = TRUE)
+  e <- rnorm(n, mean = mus[components], sd = sds[components])
+  h0t <- 2 * e - z %*% beta
+  if(h0 == 1) {
+    t <- exp((h0t + 10) / 20) 
+  } else if(h0 == 2) {
+    t <- apply(cbind((h0t + 40) / 20, 0), 1, max)
+  }
+}
+
+sim.data.proj.inter <- function(h0, beta0, samp.size) {
+  alpha <- 2
+  data <- matrix(NA, nrow = samp.size, ncol = 9)
+  data[, 1:2] <- rnorm(samp.size * 2, mean = 0, sd = sqrt(5))
+  data[, 3] <- rnorm(samp.size, mean = 0, sd = sqrt(3)) + (data[, 1] * data[, 2]) / 3
+  u.vec <- runif(samp.size)
+  data[, 4] <- generate.t(h0 = h0, beta0 = beta0, u = u.vec, 
+                          z = data[, 1:3], alpha = alpha, n = samp.size)
+  cut <- seq(min(data[, 4]), max(data[, 4]), (max(data[, 4]) - min(data[, 4])) / 6)
+  data[, 5] <- runif(samp.size, min = cut[2], max = cut[3])
+  data[, 6] <- runif(samp.size, min = cut[3], max = cut[4])
+  data[, 7] <- runif(samp.size, min = cut[4], max = cut[5])
+  data[, 8] <- runif(samp.size, min = cut[5], max = cut[6])
+  data[, 9] <- runif(samp.size, min = cut[6], max = cut[7])
+  cen <- runif(samp.size, min = 0, max = 500)
+  delta <- cen > data[, 4]
+  delta5 <- data[, 5] > data[, 4]
+  delta6 <- data[, 6] > data[, 4]
+  delta7 <- data[, 7] > data[, 4]
+  delta8 <- data[, 8] > data[, 4]
+  delta9 <- data[, 9] > data[, 4]
+  final.data <- data.frame(
+    cen, data[, 5], data[, 6], data[, 7], data[, 8], data[, 9],
+    delta, delta5, delta6, delta7, delta8, delta9, data[, 1:3], data[, 4])
+  colnames(final.data) <- c(
+    "cen.time", "cen1", "cen2", "cen3", "cen4", "cen5", "delta",
+    "delta1", "delta2", "delta3", "delta4", "delta5", "z1", "z2", "z3", "t")
+  return(final.data)
+}
+```
+
+```{r}
+set.seed(1234)
+sim <- sim.data.proj.inter(h0 = 2, beta0 = 1, samp.size = 1e3)
+DF <- data.frame(
+  d1 = as.integer(sim$delta1), 
+  d2 = as.integer(sim$delta2), 
+  d3 = as.integer(sim$delta3), 
+  d4 = as.integer(sim$delta4), 
+  d5 = as.integer(sim$delta5),
+  c1 = sim$cen1, 
+  c2 = sim$cen2, 
+  c3 = sim$cen3, 
+  c4 = sim$cen4, 
+  c5 = sim$cen5, 
+  z1 = sim$z1, 
+  z2 = sim$z2, 
+  z3 = sim$z3)
+data.table::data.table(DF)
+```
+
+```{r}
+saveRDS(DF, "simdata.rds")
+```
