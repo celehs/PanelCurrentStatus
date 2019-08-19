@@ -1,7 +1,7 @@
 #' @import stats
 NULL
 
-#' @title Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator 
+#' @title Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator 
 #' @param delta event indicator matrix
 #' @param ctime censoring time matrix
 #' @param predictors predictor matrix

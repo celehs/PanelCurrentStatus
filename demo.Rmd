@@ -4,6 +4,7 @@ output:
 ---
 
 ```{r}
+# devtools::install_github("celehs/PanelCurrentStatus")
 library(PanelCurrentStatus)
 ```
 
@@ -19,7 +20,7 @@ ctime <- as.matrix(data[, 5 + 1:5])
 predictors <- as.matrix(data[, 10 + 1:3])
 ```
 
-Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator 
+Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator 
 
 ```{r}
 fit <- ccl.fit(delta, ctime, predictors, n.ptb = 500, seed = 1)
