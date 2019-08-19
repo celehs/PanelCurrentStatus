@@ -20,7 +20,7 @@ Load package `PanelCurrentStatus` into R:
 library(PanelCurrentStatus)
 ```
 
-# [Demo](demo.pdf)
+Click [here](demo.pdf) to see a demo.
 
 # References
 
