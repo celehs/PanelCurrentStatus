@@ -1,25 +1,13 @@
----
-output:
-  pdf_document: default
----
+#' @import stats
+NULL
 
-```{r}
-sum.I <- function(yy, FUN, Yi, Vi = NULL) {
-  if (FUN == "<" | FUN == ">=") { 
-    yy <- -yy
-    Yi <- -Yi
-  }
-  pos <- rank(c(yy, Yi), ties.method = 'f')[1:length(yy)] - rank(yy, ties.method = 'f')
-  if (substring(FUN, 2, 2) == "=") pos <- length(Yi) - pos
-  if (!is.null(Vi)) {
-    if (substring(FUN, 2, 2) == "=") tmpind <- order(-Yi) else tmpind <- order(Yi)
-    Vi <- apply(as.matrix(Vi)[tmpind, , drop = F], 2, cumsum)
-    return(rbind(0, Vi)[pos + 1, ])
-  } else return(pos)
-}
-```
-
-```{r}
+#' @title ...
+#' @param delta ...
+#' @param ctime ...
+#' @param predictors ...
+#' @param n.ptb ...
+#' @param seed ...
+#' @export
 ccl.fit <- function(delta, ctime, predictors, n.ptb, seed = 1) {
   ccl_fit <- function(delta, ctime, predictors, weights = NULL) {
     fit <- suppressWarnings(
@@ -68,10 +56,27 @@ ccl.fit <- function(delta, ctime, predictors, n.ptb, seed = 1) {
        est.ptb = est.ptb, 
        W = W)
 }
-```
 
-```{r}
+#' @title ...
+#' @param data ...
+#' @param fit ...
+#' @param t0 ...
+#' @param h ...
+#' @export
 ccl.roc <- function(data, fit, t0, h) {
+  sum.I <- function(yy, FUN, Yi, Vi = NULL) {
+    if (FUN == "<" | FUN == ">=") { 
+      yy <- -yy
+      Yi <- -Yi
+    }
+    pos <- rank(c(yy, Yi), ties.method = 'f')[1:length(yy)] - rank(yy, ties.method = 'f')
+    if (substring(FUN, 2, 2) == "=") pos <- length(Yi) - pos
+    if (!is.null(Vi)) {
+      if (substring(FUN, 2, 2) == "=") tmpind <- order(-Yi) else tmpind <- order(Yi)
+      Vi <- apply(as.matrix(Vi)[tmpind, , drop = F], 2, cumsum)
+      return(rbind(0, Vi)[pos + 1, ])
+    } else return(pos)
+  }
   ccl_roc <- function(data, est, t0, h, weights = NULL) {
     if (is.null(weights)) weights <- rep(1, nrow(data))
     k.wts <- dnorm((data$ctime - t0) / h) / h
@@ -111,33 +116,3 @@ ccl.roc <- function(data, fit, t0, h) {
        roc.se = apply(roc.ptb, 1, sd),
        roc.ptb = roc.ptb)
 }
-```
-
-```{r}
-simdata <- readRDS("simdata.rds")
-delta <- as.matrix(simdata[, 1:5])
-ctime <- as.matrix(simdata[, 5 + 1:5])
-predictors <- as.matrix(simdata[, 10 + 1:3])
-```
-
-```{r}
-fit <- ccl.fit(delta, ctime, predictors, n.ptb = 500, seed = 1)
-data.frame(est = fit[[2]], est.se = fit[[3]])
-```
-
-```{r}
-data <- NULL
-for (k in 1:ncol(delta)) {
-  DF <- data.frame(delta = delta[, k], ctime = ctime[, k], predictors)
-  data <- rbind(data, DF)
-}
-n <- nrow(simdata)
-t0 <- median(data$ctime)
-h <- sd(data$ctime) / n^0.3
-ans <- ccl.roc(data, fit, t0, h)
-data.frame(roc = ans[[1]], roc.se = ans[[2]])
-```
-
-```{r}
-proc.time()
-```
