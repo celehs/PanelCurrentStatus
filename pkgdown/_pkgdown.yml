@@ -9,6 +9,6 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Example"
-      href: demo.pdf      
+      href: https://github.com/celehs/PanelCurrentStatus/blob/master/demo.pdf    
     - text: "Reference"
       href: reference/index.html

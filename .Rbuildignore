@@ -3,3 +3,5 @@
 ^.*\.rds$
 ^.*\.pdf$
 ^.*\.Rmd$
+docs/
+pkgdown/

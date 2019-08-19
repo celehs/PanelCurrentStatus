@@ -7,11 +7,11 @@
 ccl.fit(delta, ctime, predictors, n.ptb, seed = 1)
 }
 \arguments{
-\item{delta}{event indicator matrix}
+\item{delta}{matrix of event indicator}
 
-\item{ctime}{censoring time matrix}
+\item{ctime}{matrix of censoring/monitoring time}
 
-\item{predictors}{predictor matrix}
+\item{predictors}{matrix of predictors}
 
 \item{n.ptb}{number of perturbations}
 

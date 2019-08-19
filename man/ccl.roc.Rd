@@ -11,9 +11,9 @@ ccl.roc(data, fit, t0, h)
 
 \item{fit}{results from function ccl.fit}
 
-\item{t0}{prediction time}
+\item{t0}{pre-specified prediction time}
 
-\item{h}{bandwidth}
+\item{h}{bandwidth for kernel smoothing}
 }
 \description{
 Evaluating the model metrics from ROC curve via kernel smoothing

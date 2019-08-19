@@ -40,7 +40,7 @@
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="demo.pdf">Example</a>
+  <a href="https://github.com/celehs/PanelCurrentStatus/blob/master/demo.pdf">Example</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -67,15 +67,22 @@
 <div id="risk-prediction-models-with-panel-current-status-data" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#risk-prediction-models-with-panel-current-status-data" class="anchor"></a>Risk Prediction Models with Panel Current Status Data</h1></div>
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
+<p>This package contains R functions to compute the conditional censoring logistic (CCL) estimator and model metrics to evaluate risk predictions using panel current status data. The CCL estimator takes advantage of the ability to transform panel current status data into a binary outcome analysis, building on existing logistic regression estimators by incorporating monitoring time information into the working model.</p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>If <code>devtools</code> is not installed, uncomment the code below and install it from CRAN.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a></code></pre></div>
-<p>Install development version from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"celehs/PanelCurrentStatus"</span>)</a></code></pre></div>
-<p>Load package <code>PanelCurrentStatus</code> into R:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(PanelCurrentStatus)</a></code></pre></div>
+<p>Install package from GitHub:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"celehs/PanelCurrentStatus"</span>)</a></code></pre></div>
+</div>
+<div id="getting-started" class="section level2">
+<h2 class="hasAnchor">
+<a href="#getting-started" class="anchor"></a>Getting Started</h2>
+<p>Please click <a href="https://github.com/celehs/PanelCurrentStatus/blob/master/demo.pdf">HERE</a> to view a demo. The data example in the demo can be downloaded <a href="https://github.com/celehs/PanelCurrentStatus/blob/master/data.rds">HERE</a>.</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">

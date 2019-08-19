@@ -2,9 +2,9 @@
 NULL
 
 #' @title Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator 
-#' @param delta event indicator matrix
-#' @param ctime censoring time matrix
-#' @param predictors predictor matrix
+#' @param delta matrix of event indicator
+#' @param ctime matrix of censoring/monitoring time
+#' @param predictors  matrix of predictors
 #' @param n.ptb number of perturbations
 #' @param seed random seed for resampling
 #' @export
@@ -60,8 +60,8 @@ ccl.fit <- function(delta, ctime, predictors, n.ptb, seed = 1) {
 #' @title Evaluating the model metrics from ROC curve via kernel smoothing
 #' @param data data matrix in 'long' format
 #' @param fit results from function ccl.fit
-#' @param t0 prediction time
-#' @param h bandwidth
+#' @param t0 pre-specified prediction time
+#' @param h bandwidth for kernel smoothing
 #' @export
 ccl.roc <- function(data, fit, t0, h) {
   sum.I <- function(yy, FUN, Yi, Vi = NULL) {
