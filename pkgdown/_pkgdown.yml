@@ -1,0 +1,14 @@
+template:
+  params:
+    bootswatch: spacelab
+    
+navbar:
+  title: "PanelCurrentStatus"
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Example"
+      href: demo.pdf      
+    - text: "Reference"
+      href: reference/index.html

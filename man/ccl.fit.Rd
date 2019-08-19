@@ -2,7 +2,7 @@
 % Please edit documentation in R/PanelCurrentStatus.R
 \name{ccl.fit}
 \alias{ccl.fit}
-\title{Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator}
+\title{Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator}
 \usage{
 ccl.fit(delta, ctime, predictors, n.ptb, seed = 1)
 }
@@ -18,5 +18,5 @@ ccl.fit(delta, ctime, predictors, n.ptb, seed = 1)
 \item{seed}{random seed for resampling}
 }
 \description{
-Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator
+Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator
 }

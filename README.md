@@ -20,8 +20,6 @@ Load package `PanelCurrentStatus` into R:
 library(PanelCurrentStatus)
 ```
 
-Click [HERE](demo.pdf) to see a demo.
-
 ## References
 
 S. Chan, X. Wang, I. Jazic, S. Peskoe, Y. Zheng, T. Cai. Developing and Evaluating Risk Prediction Models with Panel Current Status Data. Submitted to _Biometrics_.
