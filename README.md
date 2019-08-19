@@ -1,6 +1,6 @@
 # Risk Prediction Models with Panel Current Status Data
 
-# Installation
+## Installation
 
 If `devtools` is not installed, uncomment the code below and install it from CRAN.
 
@@ -22,6 +22,6 @@ library(PanelCurrentStatus)
 
 Click [here](demo.pdf) to see a demo.
 
-# References
+## References
 
 S. Chan, X. Wang, I. Jazic, S. Peskoe, Y. Zheng, T. Cai. Developing and Evaluating Risk Prediction Models with Panel Current Status Data. Submitted to _Biometrics_.
