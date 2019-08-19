@@ -20,9 +20,7 @@ Load package `PanelCurrentStatus` into R:
 library(PanelCurrentStatus)
 ```
 
-# Main Steps
-
-The main functions are `ccl.fit` and `ccl.roc`.  See [demo](demo.pdf).
+# [Demo](demo.pdf)
 
 # References
 
