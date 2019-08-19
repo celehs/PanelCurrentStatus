@@ -2,21 +2,21 @@
 % Please edit documentation in R/PanelCurrentStatus.R
 \name{ccl.fit}
 \alias{ccl.fit}
-\title{...}
+\title{Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator}
 \usage{
 ccl.fit(delta, ctime, predictors, n.ptb, seed = 1)
 }
 \arguments{
-\item{delta}{...}
+\item{delta}{event indicator matrix}
 
-\item{ctime}{...}
+\item{ctime}{censoring time matrix}
 
-\item{predictors}{...}
+\item{predictors}{predictor matrix}
 
-\item{n.ptb}{...}
+\item{n.ptb}{number of perturbations}
 
-\item{seed}{...}
+\item{seed}{random seed for resampling}
 }
 \description{
-...
+Calcuate the scaled coefficents from the conditional censoring logistic (CCL) estimator
 }

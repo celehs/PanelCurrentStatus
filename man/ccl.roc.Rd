@@ -2,19 +2,19 @@
 % Please edit documentation in R/PanelCurrentStatus.R
 \name{ccl.roc}
 \alias{ccl.roc}
-\title{...}
+\title{Evaluating the model metrics from ROC curve via kernel smoothing}
 \usage{
 ccl.roc(data, fit, t0, h)
 }
 \arguments{
-\item{data}{...}
+\item{data}{data matrix in 'long' format}
 
-\item{fit}{...}
+\item{fit}{results from function ccl.fit}
 
-\item{t0}{...}
+\item{t0}{prediction time}
 
-\item{h}{...}
+\item{h}{bandwidth}
 }
 \description{
-...
+Evaluating the model metrics from ROC curve via kernel smoothing
 }

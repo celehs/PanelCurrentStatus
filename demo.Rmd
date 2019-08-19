@@ -26,7 +26,7 @@ fit <- ccl.fit(delta, ctime, predictors, n.ptb = 500, seed = 1)
 data.frame(est = fit[[2]], est.se = fit[[3]])
 ```
 
-Prepare the data for evaluating the metrics from ROC curve via kernel smoothing
+Prepare the data for evaluating the model metrics from ROC curve via kernel smoothing
 
 ```{r}
 alldata <- NULL
