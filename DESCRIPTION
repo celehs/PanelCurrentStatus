@@ -1,6 +1,6 @@
 Package: PanelCurrentStatus
 Title: Risk Prediction Models with Panel Current Status Data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Xuan", "Wang", role = "aut"),
     person("Ming", "Yang", role = c("aut", "cre"), email = "hustyangming@gmail.com"),
@@ -8,8 +8,8 @@ Authors@R: c(
     person("Tianxi", "Cai", role = "aut")
     )
 Description: Developing and Evaluating Risk Prediction Models with Panel Current Status Data.  
-URL: https://github.com/celehs/PanelCurrentStatus
+URL: https://celehs.github.io/PanelCurrentStatus
 BugReports: https://github.com/celehs/PanelCurrentStatus/issues
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1

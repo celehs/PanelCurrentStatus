@@ -5,3 +5,4 @@
 ^.*\.Rmd$
 docs/
 pkgdown/
+archive/

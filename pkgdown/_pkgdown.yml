@@ -1,14 +1,17 @@
 template:
   params:
-    bootswatch: spacelab
+    bootswatch: cosmo
     
 navbar:
   title: "PanelCurrentStatus"
   type: inverse
   left:
-    - text: "Home"
+    - icon: "fa-home"
       href: index.html
     - text: "Example"
-      href: https://github.com/celehs/PanelCurrentStatus/blob/master/demo.pdf    
+      href: articles/example.html    
     - text: "Reference"
       href: reference/index.html
+  right:
+    - text: "CELEHS Software"
+      href: https://celehs.github.io
