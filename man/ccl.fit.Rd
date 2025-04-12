@@ -2,21 +2,25 @@
 % Please edit documentation in R/PanelCurrentStatus.R
 \name{ccl.fit}
 \alias{ccl.fit}
-\title{Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator}
+\title{Calculate the Conditional Censoring Logistic (CCL) Estimator}
 \usage{
 ccl.fit(delta, ctime, predictors, n.ptb, seed = 1)
 }
 \arguments{
-\item{delta}{matrix of event indicator}
+\item{delta}{a matrix of event indicators (0/1) where rows correspond to subjects and 
+columns correspond to different monitoring times}
 
-\item{ctime}{matrix of censoring/monitoring time}
+\item{ctime}{a matrix of censoring/monitoring times with the same dimensions as \code{delta}}
 
-\item{predictors}{matrix of predictors}
+\item{predictors}{a matrix of predictor variables/covariates where rows correspond to subjects}
 
-\item{n.ptb}{number of perturbations}
+\item{n.ptb}{number of bootstrap samples (perturbations) for standard error estimation}
 
-\item{seed}{random seed for resampling}
+\item{seed}{an integer specifying the random seed for reproducibility of resampling}
 }
 \description{
-Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator
+This function computes the scaled coefficients from the conditional censoring logistic 
+(CCL) estimator for panel current status data. The CCL estimator transforms panel current 
+status data into a binary outcome analysis, building on existing logistic regression 
+estimators by incorporating monitoring time information into the working model.
 }

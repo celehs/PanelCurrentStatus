@@ -1,16 +1,18 @@
-
 # PanelCurrentStatus: Risk Prediction Models with Panel Current Status Data
-
-[![CRAN](https://www.r-pkg.org/badges/version/PanelCurrentStatus)](https://CRAN.R-project.org/package=PanelCurrentStatus)
 
 ## Overview
 
-This package contains R functions to compute the conditional censoring
-logistic (CCL) estimator and model metrics to evaluate risk predictions
-using panel current status data. The CCL estimator takes advantage of
-the ability to transform panel current status data into a binary outcome
-analysis, building on existing logistic regression estimators by
-incorporating monitoring time information into the working model.
+The `PanelCurrentStatus` package implements methods for developing and evaluating risk prediction models using panel current status data. In panel current status data, subjects are examined for the occurrence of an event at several pre-scheduled visit times rather than being continuously monitored. Such data arise frequently in biomedical studies where continuous monitoring is impractical or costly.
+
+This package provides tools to:
+- Compute the conditional censoring logistic (CCL) estimator, which transforms panel current status data into a binary outcome analysis
+- Evaluate prediction performance of estimated risk models with panel current status data
+- Calculate model metrics from ROC curves via kernel smoothing
+
+The CCL estimator offers advantages over existing methods by:
+- Building on logistic regression estimators while incorporating monitoring time information
+- Providing better performance in relatively small sample sizes
+- Remaining robust under various model specifications
 
 ## Installation
 
@@ -21,16 +23,11 @@ Install development version from GitHub:
 remotes::install_github("celehs/PanelCurrentStatus")
 ```
 
-## Getting Started
+## Key Functions
 
-Please click
-[HERE](https://github.com/celehs/PanelCurrentStatus/blob/master/demo.pdf)
-to view a demo. The data example in the demo can be downloaded
-[HERE](https://github.com/celehs/PanelCurrentStatus/blob/master/data.rds).
+- `ccl.fit()`: Computes the scaled coefficients from the conditional censoring logistic estimator
+- `ccl.roc()`: Evaluates model metrics from ROC curve via kernel smoothing
 
 ## References
 
-Chan S, Wang X, Jazić I, Peskoe S, Zheng Y, Cai T. Developing and
-evaluating risk prediction models with panel current status data.
-Biometrics. 2020 Jun 19. doi: 10.1111/biom.13317. Epub ahead of print.
-PMID: 32562264.
+Chan S, Wang X, Jazić I, Peskoe S, Zheng Y, Cai T. Developing and evaluating risk prediction models with panel current status data. Biometrics. 2021 Jun;77(2):599-609. doi: 10.1111/biom.13317. Epub 2020 Jul 8. PMID: 32562264; PMCID: PMC8168594.

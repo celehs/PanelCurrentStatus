@@ -1,0 +1,122 @@
+---
+title: "PanelCurrentStatus"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{PanelCurrentStatus}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction to Panel Current Status Data
+
+Panel current status data arise in longitudinal studies where subjects are examined for the occurrence of an event only at pre-scheduled visit times, rather than being continuously monitored. For each subject at each examination time, we only observe whether the event has occurred (status = 1) or not (status = 0) by that time.
+
+This type of data is common in biomedical studies where continuous monitoring is impractical or costly, such as:
+
+* Disease progression studies with periodic clinical visits
+* Longitudinal cohort studies with scheduled examinations
+* Cancer screening programs with regular check-ups
+
+The `PanelCurrentStatus` package implements the conditional censoring logistic (CCL) estimator, which transforms panel current status data into a binary outcome analysis. This approach offers advantages over traditional methods by:
+
+* Building on existing logistic regression estimators
+* Incorporating monitoring time information into the working model
+* Providing better performance in smaller sample sizes
+* Remaining robust under various model specifications
+
+```{r setup}
+library(PanelCurrentStatus)
+```
+
+## Example Dataset
+
+The example dataset contains simulated panel current status data with the following structure:
+
+* `d1` to `d5`: Binary indicators (0/1) for event status at each of 5 examination times
+* `c1` to `c5`: Corresponding examination times
+* `z1` to `z3`: Predictor variables (covariates)
+
+Let's take a look at the first few rows:
+
+```{r}
+data <- readRDS("data.rds")
+head(data)
+```
+
+## Data Preparation
+
+Before analysis, we need to format the data appropriately for the CCL estimation. We'll separate the components into matrices:
+
+* `delta`: Matrix of binary event indicators
+* `ctime`: Matrix of examination times
+* `predictors`: Matrix of covariates
+
+```{r}
+n <- nrow(data)
+delta <- as.matrix(data[, 1:5])
+ctime <- as.matrix(data[, 5 + 1:5])
+predictors <- as.matrix(data[, 10 + 1:3])
+```
+
+## Estimating the Model Parameters
+
+The `ccl.fit()` function computes the scaled coefficients from the conditional censoring logistic (CCL) estimator. It takes the following parameters:
+
+* `delta`: Matrix of binary event indicators
+* `ctime`: Matrix of examination times
+* `predictors`: Matrix of covariates
+* `n.ptb`: Number of bootstrap samples for standard error estimation
+* `seed`: Random seed for reproducibility
+
+```{r}
+fit <- ccl.fit(delta, ctime, predictors, n.ptb = 500, seed = 1)
+data.frame(est = fit[[2]], est.se = fit[[3]])
+```
+
+The output shows the estimated coefficients (`est`) and their standard errors (`est.se`) for each predictor. These coefficients represent the association between each predictor and the risk of the event, similar to coefficients in a Cox proportional hazards model but up to a scale multiplier.
+
+## Evaluating Model Performance
+
+To evaluate the prediction performance of the estimated risk model, we can calculate various metrics from the ROC curve using kernel smoothing. First, we need to prepare the data in a "long" format:
+
+```{r, warning=FALSE}
+alldata <- NULL
+for (k in 1:ncol(delta)) {
+  DF <- data.frame(delta = delta[, k], ctime = ctime[, k], predictors)
+  alldata <- rbind(alldata, DF)
+}
+```
+
+Then we calculate evaluation metrics using the `ccl.roc()` function:
+
+* `t0`: Prediction time point (here we use the median examination time)
+* `h`: Bandwidth for kernel smoothing (calculated as a function of sample size)
+
+```{r, warning=FALSE}
+t0 <- median(alldata$ctime)
+h <- sd(alldata$ctime) / n^0.3
+ans <- ccl.roc(alldata, fit, t0, h)
+data.frame(roc = ans[[1]], roc.se = ans[[2]])
+```
+
+The output includes:
+
+* `auc.tilde.lower` and `auc.tilde.upper`: Lower and upper bounds for the area under the ROC curve (AUC)
+* `tpr.05.tilde` and `tpr.10.tilde`: True positive rates at 5% and 10% false positive rates
+
+AUC values range from 0.5 (no discrimination) to 1 (perfect discrimination). Higher values indicate better model performance.
+
+```{r}
+proc.time()
+```
+
+## Conclusion
+
+The `PanelCurrentStatus` package provides a robust method for developing and evaluating risk prediction models with panel current status data. The CCL estimator offers advantages in terms of computational efficiency and performance in smaller samples compared to traditional methods.

@@ -2,19 +2,27 @@
 % Please edit documentation in R/PanelCurrentStatus.R
 \name{ccl.roc}
 \alias{ccl.roc}
-\title{Evaluating the model metrics from ROC curve via kernel smoothing}
+\title{Evaluate Prediction Model Performance with ROC Curves}
 \usage{
 ccl.roc(data, fit, t0, h)
 }
 \arguments{
-\item{data}{data matrix in 'long' format}
+\item{data}{a data frame in 'long' format containing columns for:
+\itemize{
+  \item{delta: binary event indicator}
+  \item{ctime: monitoring/examination time}
+  \item{predictors: covariate values}
+}}
 
-\item{fit}{results from function ccl.fit}
+\item{fit}{results from the \code{ccl.fit} function, providing estimated coefficients and bootstrap weights}
 
-\item{t0}{pre-specified prediction time}
+\item{t0}{pre-specified prediction time point of interest}
 
-\item{h}{bandwidth for kernel smoothing}
+\item{h}{bandwidth for kernel smoothing, controlling the weight assigned to observations 
+based on their proximity to \code{t0}}
 }
 \description{
-Evaluating the model metrics from ROC curve via kernel smoothing
+This function evaluates prediction performance metrics from ROC curve analysis via 
+kernel smoothing for panel current status data. It calculates area under the curve (AUC) 
+and true positive rates at specified false positive rates.
 }

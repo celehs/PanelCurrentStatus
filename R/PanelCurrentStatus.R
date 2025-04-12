@@ -1,12 +1,21 @@
 #' @import stats
 NULL
 
-#' @title Calcuate the scaled coefficients from the conditional censoring logistic (CCL) estimator 
-#' @param delta matrix of event indicator
-#' @param ctime matrix of censoring/monitoring time
-#' @param predictors  matrix of predictors
-#' @param n.ptb number of perturbations
-#' @param seed random seed for resampling
+#' Calculate the Conditional Censoring Logistic (CCL) Estimator
+#'
+#' @description
+#' This function computes the scaled coefficients from the conditional censoring logistic 
+#' (CCL) estimator for panel current status data. The CCL estimator transforms panel current 
+#' status data into a binary outcome analysis, building on existing logistic regression 
+#' estimators by incorporating monitoring time information into the working model.
+#'
+#' @param delta a matrix of event indicators (0/1) where rows correspond to subjects and 
+#'        columns correspond to different monitoring times
+#' @param ctime a matrix of censoring/monitoring times with the same dimensions as \code{delta}
+#' @param predictors a matrix of predictor variables/covariates where rows correspond to subjects
+#' @param n.ptb number of bootstrap samples (perturbations) for standard error estimation
+#' @param seed an integer specifying the random seed for reproducibility of resampling
+#'
 #' @export
 ccl.fit <- function(delta, ctime, predictors, n.ptb, seed = 1) {
   ccl_fit <- function(delta, ctime, predictors, weights = NULL) {
@@ -57,11 +66,24 @@ ccl.fit <- function(delta, ctime, predictors, n.ptb, seed = 1) {
        W = W)
 }
 
-#' @title Evaluating the model metrics from ROC curve via kernel smoothing
-#' @param data data matrix in 'long' format
-#' @param fit results from function ccl.fit
-#' @param t0 pre-specified prediction time
-#' @param h bandwidth for kernel smoothing
+#' Evaluate Prediction Model Performance with ROC Curves
+#'
+#' @description
+#' This function evaluates prediction performance metrics from ROC curve analysis via 
+#' kernel smoothing for panel current status data. It calculates area under the curve (AUC) 
+#' and true positive rates at specified false positive rates.
+#'
+#' @param data a data frame in 'long' format containing columns for:
+#'        \itemize{
+#'          \item{delta: binary event indicator}
+#'          \item{ctime: monitoring/examination time}
+#'          \item{predictors: covariate values}
+#'        }
+#' @param fit results from the \code{ccl.fit} function, providing estimated coefficients and bootstrap weights
+#' @param t0 pre-specified prediction time point of interest
+#' @param h bandwidth for kernel smoothing, controlling the weight assigned to observations 
+#'        based on their proximity to \code{t0}
+#' 
 #' @export
 ccl.roc <- function(data, fit, t0, h) {
   sum.I <- function(yy, FUN, Yi, Vi = NULL) {

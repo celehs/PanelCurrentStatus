@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Example • PanelCurrentStatus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<title>PanelCurrentStatus • PanelCurrentStatus</title>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Example">
+<script src="../pkgdown.js"></script><meta property="og:title" content="PanelCurrentStatus">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -21,7 +21,7 @@
 
 
     <div class="container template-article">
-      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -32,20 +32,14 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">PanelCurrentStatus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fa fa-home"></span>
-
-  </a>
-</li>
-<li>
-  <a href="../articles/example.html">Example</a>
+  <a href="../articles/PanelCurrentStatus.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -53,7 +47,10 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://celehs.github.io" class="external-link">CELEHS Software</a>
+  <a href="https://github.com/celehs/PanelCurrentStatus/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+
+  </a>
 </li>
       </ul>
 </div>
@@ -68,19 +65,62 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Example</h1>
+      <h1 data-toc-skip>PanelCurrentStatus</h1>
             
-            <h4 data-toc-skip class="date">2025-04-12</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/celehs/PanelCurrentStatus/blob/HEAD/vignettes/example.Rmd" class="external-link"><code>vignettes/example.Rmd</code></a></small>
-      <div class="hidden name"><code>example.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/celehs/PanelCurrentStatus/blob/HEAD/vignettes/PanelCurrentStatus.Rmd" class="external-link"><code>vignettes/PanelCurrentStatus.Rmd</code></a></small>
+      <div class="hidden name"><code>PanelCurrentStatus.Rmd</code></div>
 
     </div>
 
     
     
+<div class="section level2">
+<h2 id="introduction-to-panel-current-status-data">Introduction to Panel Current Status Data<a class="anchor" aria-label="anchor" href="#introduction-to-panel-current-status-data"></a>
+</h2>
+<p>Panel current status data arise in longitudinal studies where
+subjects are examined for the occurrence of an event only at
+pre-scheduled visit times, rather than being continuously monitored. For
+each subject at each examination time, we only observe whether the event
+has occurred (status = 1) or not (status = 0) by that time.</p>
+<p>This type of data is common in biomedical studies where continuous
+monitoring is impractical or costly, such as:</p>
+<ul>
+<li>Disease progression studies with periodic clinical visits</li>
+<li>Longitudinal cohort studies with scheduled examinations</li>
+<li>Cancer screening programs with regular check-ups</li>
+</ul>
+<p>The <code>PanelCurrentStatus</code> package implements the
+conditional censoring logistic (CCL) estimator, which transforms panel
+current status data into a binary outcome analysis. This approach offers
+advantages over traditional methods by:</p>
+<ul>
+<li>Building on existing logistic regression estimators</li>
+<li>Incorporating monitoring time information into the working
+model</li>
+<li>Providing better performance in smaller sample sizes</li>
+<li>Remaining robust under various model specifications</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://celehs.github.io/PanelCurrentStatus" class="external-link">PanelCurrentStatus</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="example-dataset">Example Dataset<a class="anchor" aria-label="anchor" href="#example-dataset"></a>
+</h2>
+<p>The example dataset contains simulated panel current status data with
+the following structure:</p>
+<ul>
+<li>
+<code>d1</code> to <code>d5</code>: Binary indicators (0/1) for
+event status at each of 5 examination times</li>
+<li>
+<code>c1</code> to <code>c5</code>: Corresponding examination
+times</li>
+<li>
+<code>z1</code> to <code>z3</code>: Predictor variables
+(covariates)</li>
+</ul>
+<p>Let’s take a look at the first few rows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"data.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
@@ -98,13 +138,45 @@
 <span><span class="co">#&gt; 4  1.4207321 -0.41903780</span></span>
 <span><span class="co">#&gt; 5  1.5718480 -2.36532196</span></span>
 <span><span class="co">#&gt; 6 -4.2616836 -3.41857940</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="data-preparation">Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"></a>
+</h2>
+<p>Before analysis, we need to format the data appropriately for the CCL
+estimation. We’ll separate the components into matrices:</p>
+<ul>
+<li>
+<code>delta</code>: Matrix of binary event indicators</li>
+<li>
+<code>ctime</code>: Matrix of examination times</li>
+<li>
+<code>predictors</code>: Matrix of covariates</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
 <span><span class="va">delta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">ctime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">5</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">predictors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">10</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p>Calcuate the scaled coefficients from the conditional censoring
-logistic (CCL) estimator</p>
+</div>
+<div class="section level2">
+<h2 id="estimating-the-model-parameters">Estimating the Model Parameters<a class="anchor" aria-label="anchor" href="#estimating-the-model-parameters"></a>
+</h2>
+<p>The <code><a href="../reference/ccl.fit.html">ccl.fit()</a></code> function computes the scaled coefficients
+from the conditional censoring logistic (CCL) estimator. It takes the
+following parameters:</p>
+<ul>
+<li>
+<code>delta</code>: Matrix of binary event indicators</li>
+<li>
+<code>ctime</code>: Matrix of examination times</li>
+<li>
+<code>predictors</code>: Matrix of covariates</li>
+<li>
+<code>n.ptb</code>: Number of bootstrap samples for standard error
+estimation</li>
+<li>
+<code>seed</code>: Random seed for reproducibility</li>
+</ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ccl.fit.html">ccl.fit</a></span><span class="op">(</span><span class="va">delta</span>, <span class="va">ctime</span>, <span class="va">predictors</span>, n.ptb <span class="op">=</span> <span class="fl">500</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>est <span class="op">=</span> <span class="va">fit</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, est.se <span class="op">=</span> <span class="va">fit</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -112,15 +184,36 @@ logistic (CCL) estimator</p>
 <span><span class="co">#&gt; 1 0.6391523 0.04615756</span></span>
 <span><span class="co">#&gt; 2 0.5501780 0.05454640</span></span>
 <span><span class="co">#&gt; 3 0.5373904 0.04816519</span></span></code></pre></div>
-<p>Prepare the data for evaluating the model metrics from ROC curve via
-kernel smoothing</p>
+<p>The output shows the estimated coefficients (<code>est</code>) and
+their standard errors (<code>est.se</code>) for each predictor. These
+coefficients represent the association between each predictor and the
+risk of the event, similar to coefficients in a Cox proportional hazards
+model but up to a scale multiplier.</p>
+</div>
+<div class="section level2">
+<h2 id="evaluating-model-performance">Evaluating Model Performance<a class="anchor" aria-label="anchor" href="#evaluating-model-performance"></a>
+</h2>
+<p>To evaluate the prediction performance of the estimated risk model,
+we can calculate various metrics from the ROC curve using kernel
+smoothing. First, we need to prepare the data in a “long” format:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alldata</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">delta</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>delta <span class="op">=</span> <span class="va">delta</span><span class="op">[</span>, <span class="va">k</span><span class="op">]</span>, ctime <span class="op">=</span> <span class="va">ctime</span><span class="op">[</span>, <span class="va">k</span><span class="op">]</span>, <span class="va">predictors</span><span class="op">)</span></span>
 <span>  <span class="va">alldata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">alldata</span>, <span class="va">DF</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">t0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">alldata</span><span class="op">$</span><span class="va">ctime</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Then we calculate evaluation metrics using the <code><a href="../reference/ccl.roc.html">ccl.roc()</a></code>
+function:</p>
+<ul>
+<li>
+<code>t0</code>: Prediction time point (here we use the median
+examination time)</li>
+<li>
+<code>h</code>: Bandwidth for kernel smoothing (calculated as a
+function of sample size)</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">t0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">alldata</span><span class="op">$</span><span class="va">ctime</span><span class="op">)</span></span>
 <span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">alldata</span><span class="op">$</span><span class="va">ctime</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span><span class="op">^</span><span class="fl">0.3</span></span>
 <span><span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ccl.roc.html">ccl.roc</a></span><span class="op">(</span><span class="va">alldata</span>, <span class="va">fit</span>, <span class="va">t0</span>, <span class="va">h</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>roc <span class="op">=</span> <span class="va">ans</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, roc.se <span class="op">=</span> <span class="va">ans</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -129,10 +222,31 @@ kernel smoothing</p>
 <span><span class="co">#&gt; auc.tilde.upper 0.6049485 0.02153363</span></span>
 <span><span class="co">#&gt; tpr.05.tilde    0.1307085 0.02770687</span></span>
 <span><span class="co">#&gt; tpr.10.tilde    0.1799483 0.02987241</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>The output includes:</p>
+<ul>
+<li>
+<code>auc.tilde.lower</code> and <code>auc.tilde.upper</code>: Lower
+and upper bounds for the area under the ROC curve (AUC)</li>
+<li>
+<code>tpr.05.tilde</code> and <code>tpr.10.tilde</code>: True
+positive rates at 5% and 10% false positive rates</li>
+</ul>
+<p>AUC values range from 0.5 (no discrimination) to 1 (perfect
+discrimination). Higher values indicate better model performance.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;   7.643   0.681   9.329</span></span></code></pre></div>
+<span><span class="co">#&gt;   7.721   0.706   9.880</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
+</h2>
+<p>The <code>PanelCurrentStatus</code> package provides a robust method
+for developing and evaluating risk prediction models with panel current
+status data. The CCL estimator offers advantages in terms of
+computational efficiency and performance in smaller samples compared to
+traditional methods.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -145,7 +259,7 @@ kernel smoothing</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Xuan Wang, Ming Yang, Stephanie Chan, Tianxi Cai.</p>
+<p>Developed by Xuan Wang, Stephanie Chan, Ming Yang, CELEHS Lab, PARSE Health.</p>
 </div>
 
 <div class="pkgdown">
